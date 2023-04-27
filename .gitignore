@@ -1,2 +1,6 @@
 __pycache__/
 /dist/
+/asciinemas/
+file1.json
+file2.json
+/.idea/
