@@ -15,4 +15,4 @@ check:
 	poetry run pytest
 
 coverage:
-	poetry run pytest --cov-report xml
+	poetry run pytest --cov-report xml tests/
