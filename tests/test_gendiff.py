@@ -1,5 +1,6 @@
 from gendiff.gendiff import generate_diff
 
+
 def test_generate_diff():
     with open('tests/fixtures/result.txt', 'r') as f:
         expected = f.read()[:-1]
