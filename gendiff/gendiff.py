@@ -8,21 +8,15 @@ def generate_diff(file_path1, file_path2):
     diff = ''
 
     for key in keys:
-        if key in file1:
-
-            if key in file2:
-
-                if file1[key] == file2[key]:
-                    diff += f'    {key}: {file1[key]}\n'
-                else:
-                    diff += f'  - {key}: {file1[key]}\n'
-                    diff += f'  + {key}: {file2[key]}\n'
-
+        if key in file1 and key in file2:
+            if file1[key] == file2[key]:
+                diff += f'    {key}: {file1[key]}\n'
             else:
                 diff += f'  - {key}: {file1[key]}\n'
-
-        else:
+                diff += f'  + {key}: {file2[key]}\n'
+        if key in file1 and key not in file2:
+            diff += f'  - {key}: {file1[key]}\n'
+        if key not in file1 and key in file2:
             diff += f'  + {key}: {file2[key]}\n'
 
     return '{\n' + diff + '}'
-
