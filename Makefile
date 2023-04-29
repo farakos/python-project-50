@@ -15,4 +15,4 @@ check:
 	poetry run pytest
 
 test-coverage:
-	poetry run coverage report
+	poetry run coverage run -m pytest
