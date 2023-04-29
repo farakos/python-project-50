@@ -2,6 +2,7 @@
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/farakos/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/farakos/python-project-50/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/95c653a282d382704a10/maintainability)](https://codeclimate.com/github/farakos/python-project-50/maintainability)
 
 A simple CLI program generating diffs for pairs of files
 
