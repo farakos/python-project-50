@@ -9,7 +9,6 @@ packages = [{include = "gendiff"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest-cov = "^4.0.0"
-coverage = "^7.2.4"
 
 
 [tool.poetry.group.dev.dependencies]
