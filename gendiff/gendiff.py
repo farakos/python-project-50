@@ -14,9 +14,9 @@ def generate_diff(file_path1, file_path2):
             else:
                 diff += f'  - {key}: {file1[key]}\n'
                 diff += f'  + {key}: {file2[key]}\n'
-        if key in file1 and key not in file2:
+        elif key in file1:
             diff += f'  - {key}: {file1[key]}\n'
-        if key not in file1 and key in file2:
+        else:
             diff += f'  + {key}: {file2[key]}\n'
 
     return '{\n' + diff + '}'
