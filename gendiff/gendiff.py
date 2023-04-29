@@ -4,23 +4,25 @@ import json
 def generate_diff(file_path1, file_path2):
     file1 = json.load(open(file_path1, 'r'))
     file2 = json.load(open(file_path2, 'r'))
-    keys = set(file1) | set(file2)
+    keys = file1.keys() | file2.keys()
     diff = ''
 
     for key in keys:
         if key in file1:
-            value1 = file1[key]
+
             if key in file2:
-                value2 = file2[key]
-                if value1 == value2:
-                    diff += f'    {key}: {value1}\n'
+
+                if file1[key] == file2[key]:
+                    diff += f'    {key}: {file1[key]}\n'
                 else:
-                    diff += f'  - {key}: {value1}\n'
-                    diff += f'  + {key}: {value2}\n'
+                    diff += f'  - {key}: {file1[key]}\n'
+                    diff += f'  + {key}: {file2[key]}\n'
+
             else:
-                diff += f'  - {key}: {value1}\n'
+                diff += f'  - {key}: {file1[key]}\n'
+
         else:
-            value2 = file2[key]
-            diff += f'  + {key}: {value2}\n'
+            diff += f'  + {key}: {file2[key]}\n'
 
     return '{\n' + diff + '}'
+
