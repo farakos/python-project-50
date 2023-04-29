@@ -9,3 +9,6 @@ package-install:
 
 uninstall:
 	python3 -m pip uninstall hexlet-code
+
+check:
+	make lint
