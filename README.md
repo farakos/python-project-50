@@ -10,3 +10,6 @@ A simple CLI program generating diffs for pairs of files
 ## Launching and usage
 Using gendiff for comparing two plain JSON files:
 [![asciicast](https://asciinema.org/a/J2l1FamYS1tUNTQ3PlS22s6mK.svg)](https://asciinema.org/a/J2l1FamYS1tUNTQ3PlS22s6mK)
+
+Using gendiff for comparing two plain YAML files:
+[![asciicast](https://asciinema.org/a/23yQA3jetwxzYdASGljDp9V7r.svg)](https://asciinema.org/a/23yQA3jetwxzYdASGljDp9V7r)
