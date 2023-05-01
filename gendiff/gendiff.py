@@ -43,11 +43,14 @@ def generate_nested_diff(node1, node2, depth=1):
     return nested_diff
 
 
+def get_value_space(value):
+    return '' if value == '' else ' '
+
+
 def format_value(value, indent):
     result = ''
     if not isinstance(value, dict):
-        value_space = '' if value == '' else ' '
-        result += f'{value_space}{value}\n'
+        result += f'{get_value_space(value)}{value}\n'
     else:
         result += ' {\n'
         for key, val in value.items():
