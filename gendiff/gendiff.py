@@ -1,17 +1,19 @@
 from gendiff.constants import MARGIN, MARGIN_MULTIPLIER
 
 
+def define_value(key, file):
+    if key in file.keys():
+        value = file[key]
+        return 'null' if value is None else value
+    return None
+
+
 def compare_files(file1, file2):
     keys = file1.keys() | file2.keys()
-    result = []
-    for key in sorted(keys):
-        value1 = value2 = None
-        if key in file1.keys():
-            value1 = 'null' if file1[key] is None else file1[key]
-        if key in file2.keys():
-            value2 = 'null' if file2[key] is None else file2[key]
-        result.append((key, value1, value2))
-    return result
+    return [
+            (key, define_value(key, file1), define_value(key, file2))
+            for key in sorted(keys)
+            ]
 
 
 def generate_nested_diff(node1, node2, depth=1):
