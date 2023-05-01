@@ -4,7 +4,9 @@ from gendiff.constants import MARGIN, MARGIN_MULTIPLIER
 def define_value(key, file):
     if key in file.keys():
         value = file[key]
-        return 'null' if value is None else value
+        if value is None:
+            return 'null'
+        return str(value).lower() if isinstance(value, bool) else value
     return None
 
 
@@ -41,19 +43,11 @@ def generate_nested_diff(node1, node2, depth=1):
     return nested_diff
 
 
-def format_value_output(value):
-    indent = '' if value == '' else ' '
-    if isinstance(value, bool):
-        value_output = str(value).lower()
-    else:
-        value_output = str(value)
-    return indent + value_output
-
-
 def format_value(value, indent):
     result = ''
     if not isinstance(value, dict):
-        result += format_value_output(value) + '\n'
+        value_space = '' if value == '' else ' '
+        result += f'{value_space}{value}\n'
     else:
         result += ' {\n'
         for key, val in value.items():

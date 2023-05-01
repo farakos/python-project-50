@@ -14,6 +14,4 @@ def load_file(file_path):
 
 
 def parse_data(file_path1, file_path2):
-    print(load_file(file_path1))
-    print(load_file(file_path2))
     return load_file(file_path1), load_file(file_path2)
