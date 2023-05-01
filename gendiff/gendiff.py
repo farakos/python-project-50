@@ -41,12 +41,19 @@ def generate_nested_diff(node1, node2, depth=1):
     return nested_diff
 
 
+def format_value_output(value):
+    indent = '' if value == '' else ' '
+    if isinstance(value, bool):
+        value_output = str(value).lower()
+    else:
+        value_output = str(value)
+    return indent + value_output
+
+
 def format_value(value, indent):
     result = ''
     if not isinstance(value, dict):
-        result += ' ' if value != '' else ''
-        result += str(value).lower() if isinstance(value, bool) else str(value)
-        result += '\n'
+        result += format_value_output(value) + '\n'
     else:
         result += ' {\n'
         for key, val in value.items():
