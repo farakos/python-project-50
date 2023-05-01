@@ -24,4 +24,3 @@ def test_generate_diff():
 
     assert json_result == (json_file1, json_file2)
     assert yaml_result == (yaml_file1, yaml_file2)
-
