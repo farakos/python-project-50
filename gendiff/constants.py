@@ -1,0 +1,2 @@
+MARGIN = '  '
+MARGIN_MULTIPLIER = 2
