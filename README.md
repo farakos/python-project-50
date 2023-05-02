@@ -16,3 +16,6 @@ Using gendiff for comparing two plain YAML files:
 
 Using gendiff for comparing two files with nested structure:
 [![asciicast](https://asciinema.org/a/8f1GOw4SAOYMO4xIH8v5FX0y7.svg)](https://asciinema.org/a/8f1GOw4SAOYMO4xIH8v5FX0y7)
+
+Using plain formatter instead of default one:
+[![asciicast](https://asciinema.org/a/l50hcNnWNb20jJJNw7dGVYGKY.svg)](https://asciinema.org/a/l50hcNnWNb20jJJNw7dGVYGKY)
