@@ -1,5 +1,4 @@
-from gendiff.gendiff import generate_nested_diff
-from gendiff.stylish import generate_diff
+from gendiff.gendiff import generate_diff
 import json
 import yaml
 
@@ -16,8 +15,8 @@ def test_generate_diff():
     with open('tests/fixtures/file2.yml', 'r') as y2:
         yaml_file2 = yaml.load(y2, Loader=yaml.CLoader)
 
-    json_result = generate_diff(generate_nested_diff(json_file1, json_file2))
-    yaml_result = generate_diff(generate_nested_diff(yaml_file1, yaml_file2))
+    json_result = generate_diff(json_file1, json_file2)
+    yaml_result = generate_diff(yaml_file1, yaml_file2)
 
     assert json_result == expected
     assert yaml_result == expected
@@ -35,8 +34,8 @@ def test_generate_diff_nested():
     with open('tests/fixtures/nested_file2.yaml', 'r') as y2:
         yaml_file2 = yaml.load(y2, Loader=yaml.CLoader)
 
-    json_result = generate_diff(generate_nested_diff(json_file1, json_file2))
-    yaml_result = generate_diff(generate_nested_diff(yaml_file1, yaml_file2))
+    json_result = generate_diff(json_file1, json_file2)
+    yaml_result = generate_diff(yaml_file1, yaml_file2)
 
     assert json_result == expected
     assert yaml_result == expected

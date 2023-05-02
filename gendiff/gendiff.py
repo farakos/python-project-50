@@ -1,3 +1,6 @@
+from gendiff.stylish import stylish
+
+
 def define_value(key, file):
     if key in file.keys():
         value = file[key]
@@ -37,3 +40,11 @@ def generate_nested_diff(node1, node2, depth=1):
                 ]
             )
     return nested_diff
+
+
+def generate_diff(file1, file2, formatter='stylish'):
+    nested_diff = generate_nested_diff(file1, file2)
+    if formatter == 'stylish':
+        return stylish(nested_diff)
+    else:
+        return nested_diff

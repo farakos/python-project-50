@@ -32,6 +32,6 @@ def format_diff(diff):
     return result
 
 
-def generate_diff(nested_diff):
+def stylish(nested_diff):
     result = '{\n' + format_diff(nested_diff) + '}'
     return result

@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
 import argparse
-from gendiff.gendiff import generate_nested_diff
+from gendiff.gendiff import generate_diff
 from gendiff.data_parser import parse_data
-import gendiff.stylish as stylish
 
 
 def main():
@@ -17,9 +16,7 @@ def main():
     args = parser.parse_args()
 
     data = parse_data(args.first_file, args.second_file)
-    nested_diff = generate_nested_diff(*data)
-    if args.formatter == 'stylish':
-        print(stylish.generate_diff(nested_diff))
+    print(generate_diff(*data, args.formatter))
 
 
 if __name__ == '__main__':
