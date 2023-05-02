@@ -1,5 +1,5 @@
-from gendiff.stylish import stylish
-from gendiff.plain import plain
+from formatters.stylish import stylish
+from formatters.plain import plain
 from gendiff.constants import BOOLS
 
 
