@@ -1,4 +1,4 @@
-from gendiff.constants import MARGIN, MARGIN_MULTIPLIER
+from gendiff.constants import MARGIN, MARGIN_MULTIPLIER, SIGN
 
 
 def define_value(key, file):
@@ -19,23 +19,22 @@ def compare_files(file1, file2):
 
 
 def generate_nested_diff(node1, node2, depth=1):
-    indent = MARGIN * (MARGIN_MULTIPLIER * depth - 1)
     nested_diff = []
 
     for key, value1, value2 in compare_files(node1, node2):
         if value1 == value2:
-            nested_diff.append([indent + MARGIN, key, value1])
+            nested_diff.append([depth, 'unchanged', key, value1])
         elif value1 is None:
-            nested_diff.append([indent + '+ ', key, value2])
+            nested_diff.append([depth, 'added', key, value2])
         elif value2 is None:
-            nested_diff.append([indent + '- ', key, value1])
+            nested_diff.append([depth, 'removed', key, value1])
         elif not isinstance(value1, dict) or not isinstance(value2, dict):
-            nested_diff.append([indent + '- ', key, value1])
-            nested_diff.append([indent + '+ ', key, value2])
+            nested_diff.append([depth, 'removed', key, value1])
+            nested_diff.append([depth, 'added', key, value2])
         else:
             nested_diff.append(
                 [
-                    indent + MARGIN,
+                    depth, 'changed',
                     key,
                     generate_nested_diff(value1, value2, depth + 1)
                 ]
@@ -62,14 +61,15 @@ def format_value(value, indent):
 
 def format_diff(diff):
     result = ''
-    for indent, key, value in diff:
-        result += indent + f'{key}:'
+    for depth, status, key, value in diff:
+        indent = MARGIN * (MARGIN_MULTIPLIER * depth - 1)
+        result += indent + SIGN[status] + f'{key}:'
         if not isinstance(value, list):
-            result += format_value(value, indent[:-2] + MARGIN)
+            result += format_value(value, indent + MARGIN)
         else:
             result += ' {\n'
             result += format_diff(value)
-            result += indent + '}\n'
+            result += indent + MARGIN + '}\n'
     return result
 
 
