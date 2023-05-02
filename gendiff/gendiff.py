@@ -1,12 +1,14 @@
 from gendiff.stylish import stylish
+from gendiff.plain import plain
+from gendiff.constants import BOOLS
 
 
 def define_value(key, file):
     if key in file.keys():
         value = file[key]
-        if value is None:
-            return 'null'
-        return str(value).lower() if isinstance(value, bool) else value
+        if not isinstance(value, dict) and value in BOOLS.keys():
+            return BOOLS[value]
+        return value
     return None
 
 
@@ -29,12 +31,12 @@ def generate_nested_diff(node1, node2, depth=1):
         elif value2 is None:
             nested_diff.append([depth, 'removed', key, value1])
         elif not isinstance(value1, dict) or not isinstance(value2, dict):
-            nested_diff.append([depth, 'removed', key, value1])
-            nested_diff.append([depth, 'added', key, value2])
+            nested_diff.append([depth, 'update.removed', key, value1])
+            nested_diff.append([depth, 'update.added', key, value2])
         else:
             nested_diff.append(
                 [
-                    depth, 'changed',
+                    depth, 'updated',
                     key,
                     generate_nested_diff(value1, value2, depth + 1)
                 ]
@@ -46,5 +48,7 @@ def generate_diff(file1, file2, formatter='stylish'):
     nested_diff = generate_nested_diff(file1, file2)
     if formatter == 'stylish':
         return stylish(nested_diff)
+    elif formatter == 'plain':
+        return plain(nested_diff)
     else:
         return nested_diff
