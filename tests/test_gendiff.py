@@ -29,7 +29,13 @@ def test_generate_diff_nested():
         json_file1 = json.load(j1)
     with open('tests/fixtures/nested_file2.json', 'r') as j2:
         json_file2 = json.load(j2)
+    with open('tests/fixtures/nested_file1.yaml', 'r') as y1:
+        yaml_file1 = yaml.load(y1, Loader=yaml.CLoader)
+    with open('tests/fixtures/nested_file2.yaml', 'r') as y2:
+        yaml_file2 = yaml.load(y2, Loader=yaml.CLoader)
 
     json_result = generate_diff(json_file1, json_file2)
+    yaml_result = generate_diff(yaml_file1, yaml_file2)
 
     assert json_result == expected
+    assert yaml_result == expected
