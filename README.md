@@ -13,3 +13,6 @@ Using gendiff for comparing two plain JSON files:
 
 Using gendiff for comparing two plain YAML files:
 [![asciicast](https://asciinema.org/a/23yQA3jetwxzYdASGljDp9V7r.svg)](https://asciinema.org/a/23yQA3jetwxzYdASGljDp9V7r)
+
+Using gendiff for comparing two files with nested structure:
+[![asciicast](https://asciinema.org/a/8f1GOw4SAOYMO4xIH8v5FX0y7.svg)](https://asciinema.org/a/8f1GOw4SAOYMO4xIH8v5FX0y7)
