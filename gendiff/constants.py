@@ -12,4 +12,5 @@ BOOLS = {
         True: 'true',
         False: 'false',
         None: 'null',
+        0: 0,
         }
