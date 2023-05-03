@@ -8,6 +8,8 @@ from formatters import json
 def define_value(key, file):
     if key in file.keys():
         value = file[key]
+        if str(value) == '0':
+            return 0
         if not isinstance(value, dict) and value in BOOLS.keys():
             return BOOLS[value]
         return value
