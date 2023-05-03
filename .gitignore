@@ -3,3 +3,4 @@ __pycache__/
 /asciinemas/
 /.idea/
 .coverage
+coverage.xml
