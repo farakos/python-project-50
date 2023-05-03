@@ -1,6 +1,7 @@
+from gendiff.data_parser import parse_data
+from gendiff.constants import BOOLS
 from formatters.stylish import stylish
 from formatters.plain import plain
-from gendiff.constants import BOOLS
 
 
 def define_value(key, file):
@@ -44,7 +45,8 @@ def generate_nested_diff(node1, node2, depth=1):
     return nested_diff
 
 
-def generate_diff(file1, file2, formatter='stylish'):
+def generate_diff(file_path1, file_path2, formatter='stylish'):
+    file1, file2 = parse_data(file_path1, file_path2)
     nested_diff = generate_nested_diff(file1, file2)
     if formatter == 'stylish':
         return stylish(nested_diff)
