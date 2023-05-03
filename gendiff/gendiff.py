@@ -19,9 +19,9 @@ def define_value(key, file):
 def compare_files(file1, file2):
     keys = file1.keys() | file2.keys()
     return [
-            (key, define_value(key, file1), define_value(key, file2))
-            for key in sorted(keys)
-            ]
+        (key, define_value(key, file1), define_value(key, file2))
+        for key in sorted(keys)
+    ]
 
 
 def generate_nested_diff(node1, node2, depth=1):
