@@ -2,7 +2,7 @@ from gendiff import MARGIN, MARGIN_MULTIPLIER, SIGN
 
 
 def get_value_space(value):
-    return '' if value == '' else ' '
+    return ' '
 
 
 def format_value(value, indent):
