@@ -1,7 +1,7 @@
-from gendiff.data_parser import parse_data
-from gendiff.constants import BOOLS
-from formatters.stylish import stylish
-from formatters.plain import plain
+from gendiff import parse_data
+from gendiff import BOOLS
+from formatters import stylish
+from formatters import plain
 
 
 def define_value(key, file):

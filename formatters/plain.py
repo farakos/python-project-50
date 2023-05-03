@@ -1,4 +1,4 @@
-from gendiff.constants import BOOLS
+from gendiff import BOOLS
 
 
 def form_value(value):

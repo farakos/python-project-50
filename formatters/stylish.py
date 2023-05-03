@@ -1,4 +1,4 @@
-from gendiff.constants import MARGIN, MARGIN_MULTIPLIER, SIGN
+from gendiff import MARGIN, MARGIN_MULTIPLIER, SIGN
 
 
 def get_value_space(value):
