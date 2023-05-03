@@ -10,6 +10,9 @@ package-install:
 uninstall:
 	python3 -m pip uninstall hexlet-code
 
+test:
+	poetry run pytest
+
 check:
 	poetry run flake8
 	poetry run pytest
