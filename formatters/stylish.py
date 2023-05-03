@@ -1,14 +1,10 @@
 from gendiff import MARGIN, MARGIN_MULTIPLIER, SIGN
 
 
-def get_value_space(value):
-    return ' '
-
-
 def format_value(value, indent):
     result = ''
     if not isinstance(value, dict):
-        result += f'{get_value_space(value)}{value}\n'
+        result += f' {value}\n'
     else:
         result += ' {\n'
         for key, val in value.items():
