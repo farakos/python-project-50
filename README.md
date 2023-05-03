@@ -19,3 +19,6 @@ Using gendiff for comparing two files with nested structure:
 
 Using plain formatter instead of default one:
 [![asciicast](https://asciinema.org/a/l50hcNnWNb20jJJNw7dGVYGKY.svg)](https://asciinema.org/a/l50hcNnWNb20jJJNw7dGVYGKY)
+
+Using json formatter instead of default one:
+[![asciicast](https://asciinema.org/a/BnH3BOdqUxlgEQOsigKXf0NzH.svg)](https://asciinema.org/a/BnH3BOdqUxlgEQOsigKXf0NzH)

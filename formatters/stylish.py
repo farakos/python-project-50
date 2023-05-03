@@ -33,5 +33,7 @@ def format_diff(diff):
 
 
 def stylish(nested_diff):
-    result = '{\n' + format_diff(nested_diff) + '}'
-    return result
+    result = format_diff(nested_diff)
+    if result:
+        return '{\n' + result + '}'
+    return '{}'

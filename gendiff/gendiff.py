@@ -2,6 +2,7 @@ from gendiff import parse_data
 from gendiff import BOOLS
 from formatters import stylish
 from formatters import plain
+from formatters import json
 
 
 def define_value(key, file):
@@ -52,5 +53,7 @@ def generate_diff(file_path1, file_path2, formatter='stylish'):
         return stylish(nested_diff)
     elif formatter == 'plain':
         return plain(nested_diff)
+    elif formatter == 'json':
+        return json(nested_diff)
     else:
         return nested_diff
